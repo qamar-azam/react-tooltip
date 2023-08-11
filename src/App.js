@@ -1,5 +1,5 @@
 import Tooltip from './components/ToolTip';
-import toolTipIcons from './data';
+import toolTipIcons from './utils/data';
 import './App.css';
 
 function App() {
