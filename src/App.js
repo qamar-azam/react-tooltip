@@ -1,4 +1,4 @@
-import Tooltip from './ToolTip';
+import Tooltip from './components/ToolTip';
 import toolTipIcons from './data';
 import './App.css';
 
