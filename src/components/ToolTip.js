@@ -26,7 +26,7 @@ function Tooltip(props) {
       let rect = selection.getRangeAt(0).getBoundingClientRect();
       control.style.display = 'block';
       control.style.top = `calc(${rect.top}px - 55px)`;
-      control.style.left = `calc(${rect.left}px + calc(${rect.width}px / 2) - 40px)`;
+      control.style.left = `calc(${rect.left}px + calc(${rect.width}px / 2) - 80px)`;
     }
   };
 

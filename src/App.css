@@ -43,8 +43,9 @@
   border-top: 10px solid black;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  left: 50px;
+  left: 50%;
   top: 45px;
+  margin-left: -10px;
 }
 
 article {
