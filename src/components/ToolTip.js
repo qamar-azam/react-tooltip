@@ -3,16 +3,19 @@ import { createPortal } from 'react-dom';
 
 function Tooltip(props) {
   useEffect(() => {
-    function hideTooltip() {
-      let control = document.querySelector('#tooltip-popup');
-      if (control !== null) {
-        control.style.display = 'none';
-        document.getSelection().removeAllRanges();
-      }
-    }
     document.addEventListener('pointerdown', hideTooltip);
-    return () => document.removeEventListener('pointerdown', hideTooltip);
+    return () => {
+      document.removeEventListener('pointerdown', hideTooltip);
+    };
   }, []);
+
+  const hideTooltip = () => {
+    let control = document.querySelector('#tooltip-popup');
+    if (control !== null && control.style.display !== 'none') {
+      control.style.display = 'none';
+      document.getSelection().removeAllRanges();
+    }
+  };
 
   const showTooltip = () => {
     let control = document.querySelector('#tooltip-popup');
@@ -33,7 +36,9 @@ function Tooltip(props) {
 
   return (
     <>
-      <div onPointerUp={() => showTooltip()}>{props.children}</div>
+      <div onPointerUp={() => showTooltip()} onWheel={hideTooltip}>
+        {props.children}
+      </div>
       {createPortal(
         <div id='tooltip-popup'>
           <span>{props.text}</span>
